@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.logo {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 16px;
+  }
+
+  .logo {
+    width: 200px;
+  }
+}
