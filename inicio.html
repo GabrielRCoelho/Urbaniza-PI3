@@ -4,12 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urbaniza</title>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="Style_inicio.css">
 </head>
 <body>
     <header>
         <img src="./assets/Logo.svg" alt="Logo da Urbaniza" class="logo">   
     </header>
+    <main class="container">
+        <div class="barra-busca">
+            <img src="./assets/lupa.svg" alt="" class="icone-busca">
+            <input type="search" placeholder="Buscar Região" aria-label="Buscar Região"> 
+        </div>
+        <section class="card-avaliacao">
+            <div class="card-avaliacao-texto">
+                <h1>Avalie sua Região</h1>
+                <p>Sua opinião ajuda a construir uma São Paulo melhor para todos.</p>
+                <a href="avaliacoes.html" class="btn-avaliar">
+                    Fazer Avaliação &rarr;
+                </a>
+            </div>
+            <div class="card-avaliacao-ilustracao" aria-hidden="true">
+                <div class="grafico-hero">
+                    <span class="barra azul" style="height: 52%"></span>
+                    <span class="barra verde" style="height: 82%"></span>
+                    <span class="barra azul" style="height: 64%"></span>
+                    <span class="barra verde" style="height: 92%"></span>
+                    <span class="barra azul" style="height: 70%"></span>
+                </div>
+            </div>
+            <div class="base-ilustracao"></div>
+        </section>
+        <section class="sessao-destaques">
+            <div class="cabecalho-secao">
+                <h2>Regiões em Destaque</h2>
+                <a href="mapa.html" class="link-ver-todas">Ver Todas &rsaquo;</a>
+            </div>
+            <div class="grid-regioes">
+                <article class="card-regiao">
+                    <div class="capa-regiao fundo-verde-claro" aria-hidden="true">
+                        <div class="mini-grafico">
+                            <span class="barra azul" style="height: 38%"></span>
+                            <span class="barra verde" style="height: 55%"></span>
+                            <span class="barra azul" style="height: 72%"></span>
+                            <span class="barra verde" style="height: 40%"></span>
+                            <span class="barra azul" style="height: 60%"></span>
+                        </div>
+                    </div>
+                    <div class="corpo-regiao">
+                        <h3>Pinheiros</h3>
+                        <p class="subtitulo-regiao">Zona Oeste &bull; São Paulo</p>
+                        <div class="rodape-regiao">
+                            <div class="nota">
+                                <span class="estrela"> &#9733;</span>
+                                <strong>4,4</strong>
+                            </div>
+                            <span class="tag-status status-boa">
+                                <span class="ponto">Boa</span>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card-regiao">
+                    <div class="capa-regiao fundo-verde-claro" aria-hidden="true">
+                        <div class="mini-grafico">
+                            <span class="barra azul" style="height: 38%"></span>
+                            <span class="barra verde" style="height: 55%"></span>
+                            <span class="barra azul" style="height: 72%"></span>
+                            <span class="barra verde" style="height: 40%"></span>
+                            <span class="barra azul" style="height: 60%"></span>
+                        </div>
+                    </div>
+                    <div class="corpo-regiao">
+                        <h3>Vila Mariana</h3>
+                        <p class="subtitulo-regiao">Zona Sul &bull; São Paulo</p>
+                        <div class="rodape-regiao">
+                            <div class="nota">
+                                <span class="estrela"> &#9733;</span>
+                                <strong>4,4</strong>
+                            </div>
+                            <span class="tag-status status-boa">
+                                <span class="ponto">Média</span>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="rodape-fixo">
+        <nav class="menu-inferior" aria-label="Navegação principal">
+            <a href="inicio.html" class="item-menu-ativo">
+                <img src="./assets/inicio.svg" alt="Inicio" class="icone-menu">
+                <span>Inicio</span>
+            </a>
+            <a href="mapa.html" class="item-menu-ativo">
+                <img src="./assets/inicio.svg" alt="Inicio" class="icone-menu">
+                <span>Mapa</span>
+            </a>
+            <a href="mapa.html" class="item-menu-ativo">
+                <img src="./assets/inicio.svg" alt="Inicio" class="icone-menu">
+                <span>Avaliações</span>
+            </a>
+            <a href="avaliacoes.html" class="item-menu-ativo">
+                <img src="./assets/avaliações.svg" alt="Inicio" class="icone-menu">
+                <span>Perfil</span>
+            </a>
+        </nav>
+    </footer>
     
 </body>
 </html> 
