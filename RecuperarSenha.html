@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar senha | Urbaniza</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <header>
+        <img src="./assets/Logo.svg" alt="Logo da Urbaniza" class="logo">
+    </header>
+
+    <main>
+        <h1>Esqueceu sua senha?</h1>
+        <p>
+            Não se preocupe! Informe seu e-mail abaixo e enviaremos instruções para recuperar sua senha.
+        </p>
+        <form action="VerificarCodigo.html" method="get">
+            <div class="campo">
+                <img src="./assets/Email.svg" alt="" class="icone">
+                <input type="email" name="email" placeholder="E-mail" aria-label="E-mail" autocomplete="email" required>
+            </div>
+
+            <button type="submit">Enviar código</button>
+
+            <a href="Index.html" class="recuperar-senha">
+                Voltar para o login
+            </a>
+        </form>
+    </main>
+
+</body>
+
+</html>

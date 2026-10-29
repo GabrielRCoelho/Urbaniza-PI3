@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar código | Urbaniza</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <header>
+        <img src="./assets/Logo.svg" alt="Logo da Urbaniza" class="logo">
+    </header>
+
+    <main>
+        <h1>Verifique seu E-mail</h1>
+        <p>
+            Digite o código que enviamos para seu e-mail para recuperar sua senha.
+        </p>
+        <form action="NovaSenha.html" method="get">
+            <div class="campo">
+                <img src="./assets/Cadeado.svg" alt="" class="icone">
+                <input type="text" name="codigo" placeholder="Código de verificação" aria-label="Código de verificação"
+                    inputmode="numeric" pattern="[0-9]{6}" minlength="6" maxlength="6" autocomplete="one-time-code"
+                    title="Digite os 6 números do código" required>
+            </div>
+
+            <button type="submit">Verificar código</button>
+
+            <a href="RecuperarSenha.html" class="recuperar-senha">
+                Voltar e informar outro e-mail
+            </a>
+        </form>
+    </main>
+
+</body>
+
+</html>
