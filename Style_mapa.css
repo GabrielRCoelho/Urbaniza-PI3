@@ -1,0 +1,442 @@
+:root {
+    --azul-escuro: #0f2b48;
+    --verde-principal: #068a47;
+    --verde-grafico: #009e54;
+    --fundo-pagina: #f7f9fb;
+    --fundo-busca: #eef1f5;
+    --branco: #ffffff;
+    --texto-secundario: #64748b;
+    --largura-layout: 520px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--fundo-pagina);
+    color: var(--azul-escuro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+/* Cabeçalho com exatamente a mesma proporção e margem da página Início */
+header,
+.topo {
+    width: 100%;
+    max-width: var(--largura-layout);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 20px 16px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container Principal */
+main,
+.container {
+    width: 100%;
+    max-width: var(--largura-layout);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Barra de Busca idêntica à página Início */
+.barra-busca {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--fundo-busca);
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin: 12px 0 24px;
+    gap: 12px;
+}
+
+.icone-busca {
+    width: 20px;
+    height: 20px;
+    color: var(--azul-escuro);
+    flex-shrink: 0;
+}
+
+.barra-busca input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--azul-escuro);
+    outline: none;
+}
+
+.barra-busca input::placeholder {
+    color: var(--texto-secundario);
+}
+
+/* Pílulas de Filtro */
+.filtros-categorias {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filtros-categorias::-webkit-scrollbar {
+    display: none;
+}
+
+.pilula-filtro {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 2px solid transparent;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--azul-escuro);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform 0.15s, border-color 0.2s;
+}
+
+.pilula-filtro.selecionado {
+    border-color: var(--azul-escuro);
+    transform: translateY(-1px);
+}
+
+.letra-icone {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--branco);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.filtro-seguranca { background-color: #eef2ff; }
+.filtro-seguranca .letra-icone { color: #2563eb; }
+
+.filtro-mobilidade { background-color: #e6f7ed; }
+.filtro-mobilidade .letra-icone { color: #068a47; }
+
+.filtro-iluminacao { background-color: #fef7e0; }
+.filtro-iluminacao .letra-icone { color: #d97706; }
+
+/* =========================================================
+   ÁREA DO MAPA E CONTROLES FLUTUANTES
+   ========================================================= */
+.area-mapa-wrapper {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(15, 43, 72, 0.06);
+    background-color: #e5ecf3;
+    margin-bottom: 24px;
+}
+
+#mapa-sp {
+    width: 100%;
+    height: 480px;
+    z-index: 1;
+}
+
+.leaflet-tile-pane {
+    filter: grayscale(70%) brightness(104%) contrast(94%);
+}
+
+.marcador-bairro-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.pino-bairro {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--branco);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    transition: transform 0.2s;
+}
+
+.pino-bairro.selecionado {
+    width: 26px;
+    height: 26px;
+    border-width: 3.5px;
+    transform: scale(1.1);
+}
+
+.nome-bairro-mapa {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    text-align: center;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0px 2px 4px rgba(255, 255, 255, 0.95);
+    white-space: nowrap;
+}
+
+.btn-mapa-localizacao {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 500;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.94);
+    color: var(--azul-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(15, 43, 72, 0.1);
+}
+
+.controles-zoom {
+    position: absolute;
+    top: 72px;
+    right: 16px;
+    z-index: 500;
+    background-color: var(--branco);
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(15, 43, 72, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.controles-zoom button {
+    width: 40px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    color: var(--azul-escuro);
+    font-size: 1.35rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controles-zoom button:first-child {
+    border-bottom: 1px solid #eef1f5;
+}
+
+.controles-zoom button:hover {
+    background-color: #f1f5f9;
+}
+
+/* =========================================================
+   CARD FLUTUANTE DA REGIÃO SELECIONADA
+   ========================================================= */
+.card-detalhe-mapa {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    z-index: 500;
+    background-color: var(--branco);
+    border-radius: 22px;
+    padding: 18px 20px;
+    box-shadow: 0 10px 28px rgba(15, 43, 72, 0.14);
+}
+
+.topo-card-detalhe {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.topo-card-detalhe h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--azul-escuro);
+    margin-bottom: 3px;
+}
+
+.zona-regiao {
+    font-size: 0.82rem;
+    color: var(--texto-secundario);
+}
+
+.tag-status {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 7px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.tag-status::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-boa { background-color: #e3f5ec; color: var(--verde-principal); }
+.status-boa::before { background-color: var(--verde-principal); }
+
+.status-media { background-color: #fef3c7; color: #d97706; }
+.status-media::before { background-color: #f59e0b; }
+
+.status-ruim { background-color: #ffe4e6; color: #e11d48; }
+.status-ruim::before { background-color: #e11d48; }
+
+.rotulo-media {
+    font-size: 0.78rem;
+    color: var(--texto-secundario);
+    margin-bottom: 4px;
+}
+
+.avaliacao-card-detalhe {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nota-destaque {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--azul-escuro);
+    line-height: 1;
+}
+
+.estrelas-avaliacao {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.estrela {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.estrela.ativa { color: var(--verde-principal); }
+.estrela.inativa { color: #dbe2ea; }
+
+/* =========================================================
+   RODAPÉ FIXO COM MENU INFERIOR
+   ========================================================= */
+.rodape-fixo {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--branco);
+    border-top: 1px solid #eef1f5;
+    box-shadow: 0 -4px 16px rgba(15, 43, 72, 0.06);
+    z-index: 1000;
+}
+
+.menu-inferior {
+    width: 100%;
+    max-width: var(--largura-layout);
+    height: 74px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-inferior a,
+.item-menu {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--texto-secundario);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.menu-inferior a img,
+.icone-menu {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.menu-inferior a.ativo,
+.item-menu.ativo {
+    color: var(--verde-principal);
+    font-weight: 700;
+}
+
+.menu-inferior a.ativo::after,
+.item-menu.ativo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 3.5px;
+    background-color: var(--verde-principal);
+    border-radius: 4px 4px 0 0;
+}
+
+/* Responsividade Desktop */
+@media (min-width: 768px) {
+    :root {
+        --largura-layout: 760px;
+    }
+
+    .area-mapa-wrapper,
+    #mapa-sp {
+        height: 520px;
+    }
+}

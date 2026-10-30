@@ -53,39 +53,6 @@ main,
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* Barra de Busca */
-.barra-busca {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    background-color: var(--fundo-busca);
-    border-radius: 16px;
-    padding: 14px 18px;
-    margin: 12px 0 24px;
-    gap: 12px;
-}
-
-.icone-busca {
-    width: 20px;
-    height: 20px;
-    color: var(--azul-escuro);
-    flex-shrink: 0;
-}
-
-.barra-busca input {
-    border: none;
-    background: transparent;
-    width: 100%;
-    font-size: 1rem;
-    color: var(--azul-escuro);
-    outline: none;
-}
-
-.barra-busca input::placeholder {
-    color: var(--texto-secundario);
-}
-
 /* Avalie sua região */
 .card-avaliacao {
     width: 100%;
