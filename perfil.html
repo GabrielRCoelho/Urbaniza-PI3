@@ -6,7 +6,7 @@
   <title>Urbaniza</title>
   <link rel="stylesheet" href="Style_perfil.css">
 </head>
-<body>
+<body data-protegida="true">
   <div class="app">
 
     <header class="topo">
@@ -14,7 +14,7 @@
     </header>
 
     <main class="conteudo">
-      <a href="#" class="card-usuario" aria-label="Carlos Lins">
+      <div class="card-usuario" aria-label="Sua conta">
         <span class="avatar" aria-hidden="true">
           <svg viewBox="0 0 64 64">
             <circle cx="32" cy="24" r="11" fill="#8a97ad"/>
@@ -23,8 +23,8 @@
         </span>
 
         <span class="dados">
-          <strong class="nome">Carlos Lins</strong>
-          <span class="email">carlos.eslins@senacsp.edu.br</span>
+          <strong class="nome">Sua conta</strong>
+          <span class="email">Carregando...</span>
           <span class="local">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             São Paulo • SP
@@ -32,24 +32,31 @@
         </span>
 
         <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
+      </div>
+
+      <form id="formulario-perfil" class="editar-perfil" hidden>
+        <label for="email-perfil">E-mail da conta</label>
+        <input id="email-perfil" name="email" type="email" autocomplete="email" maxlength="254" required>
+        <button type="submit" class="btn btn-salvar">Salvar e-mail</button>
+      </form>
+      <p id="mensagem-conta" role="status" aria-live="polite"></p>
 
       <section class="suporte" aria-labelledby="titulo-suporte">
         <h2 id="titulo-suporte">Suporte</h2>
-        <a href="Index.html" class="btn btn-sair">Sair da conta</a>
+        <button type="button" id="sair-conta" class="btn btn-sair">Sair da conta</button>
         <button type="button" class="btn btn-excluir" popovertarget="modal-excluir">Excluir conta</button>
       </section>
     </main>
     
     <div id="modal-excluir" class="modal" popover aria-labelledby="modal-titulo">
         <h2 id="modal-titulo">Excluir conta?</h2>
-        <p>Essa ação não pode ser desfeita. Suas avaliações e dados serão apagados.</p>
+        <p>Essa ação não pode ser desfeita. Sua conta será apagada.</p>
         <div class="modal-acoes">
           <button type="button" class="btn btn-cancelar"
                   popovertarget="modal-excluir" popovertargetaction="hide">
             Cancelar
           </button>
-          <a href="Index.html" class="btn btn-excluir">Sim, excluir</a>
+          <button type="button" id="confirmar-exclusao" class="btn btn-excluir">Sim, excluir</button>
         </div>
       </div>
 
@@ -76,5 +83,6 @@
     </nav>
 </footer>
 
+<script src="Script_conta.js" defer></script>
 </body>
 </html>

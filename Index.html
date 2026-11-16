@@ -18,7 +18,7 @@
         <p>
             Sua participação ajuda a construir uma <br>São Paulo melhor para todos.
         </p>
-        <form>
+        <form data-conta="login">
             <div class="campo">
                 <img src="./assets/Email.svg" alt="" class="icone">
                 <input type="email" name="email" placeholder="E-mail" aria-label="E-mail" required>
@@ -34,11 +34,13 @@
             <button type="submit">Entrar</button>
             <a href="Cadastro.html" class="criar-conta">Criar conta</a>
             <a href="RecuperarSenha.html" class="recuperar-senha">Esqueci minha senha</a>
+        <p id="mensagem-conta" role="status" aria-live="polite"></p>
         </form>
 
 
     </main>
 
+<script src="Script_conta.js" defer></script>
 </body>
 
 </html>

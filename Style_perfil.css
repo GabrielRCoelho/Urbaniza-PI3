@@ -337,3 +337,12 @@ button:focus-visible {
         font-size: 1rem;
     }
 }
+/* Edição do e-mail da conta */
+.editar-perfil { margin-top: 24px; }
+.editar-perfil label { display: block; margin-bottom: 8px; }
+.editar-perfil input {
+    width: 100%; padding: 12px; margin-bottom: 12px;
+    border: 1px solid #cbd5e1; border-radius: 10px; font: inherit;
+}
+.btn-salvar { background: var(--verde-principal); color: var(--branco); }
+#mensagem-conta { margin-top: 12px; }
