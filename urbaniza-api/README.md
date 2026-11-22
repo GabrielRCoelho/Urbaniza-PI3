@@ -14,6 +14,8 @@ No Linux ou macOS, execute `sh mvnw spring-boot:run`. Abra http://localhost:8080
 
 Para testar, crie uma conta com e-mail e senha de pelo menos 8 caracteres, faça login e abra Perfil. Ali você pode mudar o e-mail, sair ou excluir a própria conta. O limite da senha é 72 bytes por causa do BCrypt.
 
+As páginas e os arquivos de estilo e script ficam em `src/main/resources/static`. O Spring Boot carrega esses arquivos pelo classpath, inclusive ao executar pelo IntelliJ.
+
 Os dados ficam em `urbaniza-api/dados/` e permanecem após reiniciar. O login expira após 30 minutos sem uso e precisa ser feito novamente se o servidor reiniciar. A pasta do banco está no `.gitignore`.
 
 ## Organização
@@ -21,7 +23,7 @@ Os dados ficam em `urbaniza-api/dados/` e permanecem após reiniciar. O login ex
 ```text
 src/main/java/urbaniza_api/
   UrbanizaApiApplication.java       inicia o Spring
-  config/ConfiguracaoWeb.java       permite acessar o front pelo Spring
+  config/ConfiguracaoWeb.java       redireciona para a tela de login
   controller/TesteController.java   rota de teste já existente
   controller/UsuarioController.java recebe as requisições de conta
   controller/TratamentoErros.java   devolve mensagens de erro
