@@ -1,16 +1,16 @@
-# Urbaniza: contas de usuários
+# Urbaniza
 
 Projeto local de estudo com Spring Boot, JPA e H2. Os nomes que criamos estão em português; métodos e anotações do Spring seguem as convenções da biblioteca.
 
 ## Como executar
 
-No terminal, entre na pasta `urbaniza-api`, que contém `pom.xml` e `mvnw.cmd`:
+Use um JDK 21, a mesma versão do projeto Dados Pessoais. No terminal, entre na pasta `urbaniza-api`, que contém `pom.xml` e `mvnw.cmd`:
 
 ```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
-Abra http://localhost:8080/Index.html. Use as telas por esse endereço, pois o login usa o cookie de sessão do servidor. Não abra o HTML diretamente nem pelo Live Server para testar esta integração.
+No Linux ou macOS, execute `sh mvnw spring-boot:run`. Abra http://localhost:8080/Index.html. Use as telas por esse endereço, pois o login usa o cookie de sessão do servidor. Não abra o HTML diretamente nem pelo Live Server para testar esta integração.
 
 Para testar, crie uma conta com e-mail e senha de pelo menos 8 caracteres, faça login e abra Perfil. Ali você pode mudar o e-mail, sair ou excluir a própria conta. O limite da senha é 72 bytes por causa do BCrypt.
 
@@ -61,7 +61,7 @@ O cadastro recebe `nome`, `email`, `senha` e `confirmarSenha`. O nome é obrigat
 - `Style_perfil.css`: estilos do formulário de edição.
 - `Script_conta.js` (novo): envia as requisições e exibe as respostas.
 
-Recuperação de senha e verificação de código continuam somente como telas. Não há envio de e-mail, CRUD de avaliações nem edição de senha nesta etapa. As páginas estáticas não são conteúdo privado; as operações e os dados da conta exigem sessão. Para publicar o projeto, ainda será preciso configurar HTTPS, banco e proteção contra tentativas repetidas de login.
+Recuperação de senha e verificação de código continuam somente como telas. Envio de e-mail e edição de senha continuam fora desta etapa. As páginas estáticas não são conteúdo privado; as operações e os dados da conta exigem sessão. Para publicar o projeto, ainda será preciso configurar HTTPS, banco e proteção contra tentativas repetidas de login.
 
 ## Testes
 
@@ -70,3 +70,18 @@ Recuperação de senha e verificação de código continuam somente como telas. 
 ```
 
 Os testes usam H2 em memória para não alterar suas contas locais. Conferem cadastro, validação, e-mail duplicado, hash de senha, login, isolamento de sessões, edição, saída, exclusão e acesso aos arquivos do front.
+
+
+## Mapa, avaliações e destaques
+
+1. Entre com a conta e abra **Mapa**. A tela começa com a cidade inteira e sem bairro selecionado. Digite um nome com ou sem acento e clique em **Buscar**, ou clique em um distrito para ver os bairros do catálogo.
+2. Escolha um bairro e alterne entre as notas geral, de segurança, de mobilidade e de iluminação. O mapa sinaliza quando ainda não há avaliações. O botão **Avaliar este bairro** abre o formulário com distrito e bairro preenchidos.
+3. Na tela **Avaliações**, escolha distrito e bairro e dê uma nota de 1 a 5 em cada critério. Cada conta contribui uma vez para a média de cada bairro. Um novo envio substitui a contribuição anterior.
+4. Volte ao **Início** para ver a maior e a menor nota geral. Os destaques consideram somente os bairros avaliados. A nota geral é a média das três notas por critério.
+
+Para apresentar o código, siga o envio do formulário em `Script_avaliacoes.js`, o `POST /api/avaliacoes` no `AvaliacaoController`, a validação do bairro e da conta no `AvaliacaoService` e a persistência com JPA no `AvaliacaoRepository`. O mesmo repository calcula as médias que o `GET /api/avaliacoes` devolve para Mapa e Início.
+
+O GeoJSON local contém os 96 distritos do município. O catálogo contém 661 localidades com nome mapeadas no OpenStreetMap como `suburb`, `quarter` ou `neighbourhood`. O distrito de cada localidade é atribuído pela posição do ponto ou por um ponto interno à área mapeada. A cobertura acompanha o levantamento colaborativo e um bairro que cruza uma divisa aparece no distrito do ponto cadastrado. As avaliações começam vazias. As imagens de fundo do mapa são carregadas pela internet.
+
+- Limites municipais por distrito, publicados pelo GeoSampa e convertidos para GeoJSON pelo Código Urbano. [GeoSampa](https://geosampa.prefeitura.sp.gov.br/) · [Distritos em GeoJSON](https://github.com/codigourbano/distritos-sp)
+- Localidades no extrato de São Paulo, de 21/11/2026. Dados © colaboradores do OpenStreetMap, sob ODbL. [Extrato OpenStreetMap France](https://download.openstreetmap.fr/extracts/south-america/brazil/southeast/) · [Créditos e licença](https://www.openstreetmap.org/copyright)

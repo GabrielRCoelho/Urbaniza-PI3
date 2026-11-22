@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações | Urbaniza</title>
+    <link rel="stylesheet" href="Style_mapa.css">
+</head>
+<body data-protegida="true">
+    <header>
+        <img src="./assets/Logo.svg" alt="Logo da Urbaniza" class="logo">
+    </header>
+    <main class="container">
+        <h1>Avalie um bairro</h1>
+        <p>Se você avaliar o mesmo bairro novamente, as novas notas substituem as anteriores na média.</p>
+        <form id="form-avaliacao" class="card-detalhe-mapa">
+            <fieldset disabled>
+                <label for="distrito">Distrito</label>
+                <select id="distrito" name="distrito" required>
+                    <option value="">Selecione o distrito</option>
+                </select>
+                <label for="bairroId">Bairro</label>
+                <select id="bairroId" name="bairroId" required disabled></select>
+                <label for="seguranca">Segurança</label>
+                <select id="seguranca" name="seguranca" required>
+                    <option value="">Selecione de 1 a 5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <label for="mobilidade">Mobilidade</label>
+                <select id="mobilidade" name="mobilidade" required>
+                    <option value="">Selecione de 1 a 5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <label for="iluminacao">Iluminação</label>
+                <select id="iluminacao" name="iluminacao" required>
+                    <option value="">Selecione de 1 a 5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="submit" class="botao-acao">Salvar avaliação</button>
+            </fieldset>
+            <p id="mensagem-avaliacao" role="status">Carregando bairros…</p>
+        </form>
+        <p class="fonte-mapa">Catálogo de bairros com dados do <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>.</p>
+    </main>
+    <footer class="rodape-fixo">
+        <nav class="menu-inferior" aria-label="Navegação principal">
+            <a href="inicio.html" class="item-menu-ativo">
+                <img src="./assets/inicio-desativado.svg" alt="" class="icone-menu">
+                <span>Início</span>
+            </a>
+            <a href="mapa.html" class="item-menu-ativo">
+                <img src="./assets/mapa.svg" alt="" class="icone-menu">
+                <span>Mapa</span>
+            </a>
+            <a href="avaliacoes.html" class="item-menu ativo" aria-current="page">
+                <img src="./assets/avaliacoes.svg" alt="" class="icone-menu">
+                <span>Avaliações</span>
+            </a>
+            <a href="perfil.html" class="item-menu-ativo">
+                <img src="./assets/perfil.svg" alt="" class="icone-menu">
+                <span>Perfil</span>
+            </a>
+        </nav>
+    </footer>
+    <script src="Script_conta.js" defer></script>
+    <script src="Script_bairros.js" defer></script>
+    <script src="Script_avaliacoes.js" defer></script>
+</body>
+</html>

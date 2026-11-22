@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa | Urbaniza</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <link rel="stylesheet" href="Style_mapa.css">
+</head>
+<body data-protegida="true">
+    <header>
+        <img src="./assets/Logo.svg" alt="Logo da Urbaniza" class="logo">
+    </header>
+    <main class="container">
+        <h1>Mapa de São Paulo</h1>
+        <form id="form-busca">
+            <fieldset class="barra-busca" disabled>
+                <input id="input-busca-regiao" type="search" aria-label="Bairro ou distrito"
+                       placeholder="Bairro ou distrito">
+                <button class="botao-acao" type="submit">Buscar</button>
+            </fieldset>
+        </form>
+        <div class="filtros-categorias" aria-label="Critério da nota">
+            <button class="pilula-filtro selecionado" type="button" data-categoria="geral" aria-pressed="true">Geral</button>
+            <button class="pilula-filtro filtro-seguranca" type="button" data-categoria="seguranca" aria-pressed="false">Segurança</button>
+            <button class="pilula-filtro filtro-mobilidade" type="button" data-categoria="mobilidade" aria-pressed="false">Mobilidade</button>
+            <button class="pilula-filtro filtro-iluminacao" type="button" data-categoria="iluminacao" aria-pressed="false">Iluminação</button>
+        </div>
+        <div class="area-mapa-wrapper">
+            <div id="mapa-sp" aria-label="Mapa dos distritos de São Paulo"></div>
+        </div>
+        <p class="fonte-mapa">Limites distritais do <a href="https://geosampa.prefeitura.sp.gov.br/">GeoSampa</a>.</p>
+        <p id="mensagem-tiles" role="status"></p>
+        <section class="card-detalhe-mapa" id="detalhe-bairro" hidden>
+            <div class="topo-card-detalhe"><h2></h2></div>
+            <p class="zona-regiao"></p>
+            <p class="nota-destaque" aria-live="polite"></p>
+            <p class="quantidade"></p>
+            <a class="link-avaliar" href="avaliacoes.html">Avaliar este bairro</a>
+        </section>
+        <section class="resultados-mapa">
+            <h2 id="distrito-atual"></h2>
+            <p id="mensagem-mapa" role="status">Carregando mapa…</p>
+            <ul id="resultados-busca"></ul>
+        </section>
+    </main>
+    <footer class="rodape-fixo">
+        <nav class="menu-inferior" aria-label="Navegação principal">
+            <a href="inicio.html" class="item-menu-ativo">
+                <img src="./assets/inicio-desativado.svg" alt="" class="icone-menu">
+                <span>Início</span>
+            </a>
+            <a href="mapa.html" class="item-menu ativo" aria-current="page">
+                <img src="./assets/mapa.svg" alt="" class="icone-menu">
+                <span>Mapa</span>
+            </a>
+            <a href="avaliacoes.html" class="item-menu-ativo">
+                <img src="./assets/avaliacoes.svg" alt="" class="icone-menu">
+                <span>Avaliações</span>
+            </a>
+            <a href="perfil.html" class="item-menu-ativo">
+                <img src="./assets/perfil.svg" alt="" class="icone-menu">
+                <span>Perfil</span>
+            </a>
+        </nav>
+    </footer>
+    <script src="Script_conta.js" defer></script>
+    <script src="Script_bairros.js" defer></script>
+    <script src="Script_mapa.js" defer></script>
+</body>
+</html>

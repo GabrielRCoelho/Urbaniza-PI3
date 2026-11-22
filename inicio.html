@@ -35,56 +35,20 @@
                 <h2>Regiões em Destaque</h2>
                 <a href="mapa.html" class="link-ver-todas">Ver Todas &rsaquo;</a>
             </div>
-            <div class="grid-regioes">
+            <p id="mensagem-destaques" role="status">Carregando destaques…</p>
+            <div class="grid-regioes" id="destaques"></div>
+            <template id="modelo-destaque">
                 <article class="card-regiao">
-                    <div class="capa-regiao fundo-verde-claro" aria-hidden="true">
-                        <div class="mini-grafico">
-                            <span class="barra azul" style="height: 38%"></span>
-                            <span class="barra verde" style="height: 55%"></span>
-                            <span class="barra azul" style="height: 72%"></span>
-                            <span class="barra verde" style="height: 40%"></span>
-                            <span class="barra azul" style="height: 60%"></span>
-                        </div>
-                    </div>
                     <div class="corpo-regiao">
-                        <h3>Pinheiros</h3>
-                        <p class="subtitulo-regiao">Zona Oeste &bull; São Paulo</p>
+                        <h3></h3>
+                        <p class="subtitulo-regiao"></p>
                         <div class="rodape-regiao">
-                            <div class="nota">
-                                <span class="estrela"> &#9733;</span>
-                                <strong>4,4</strong>
-                            </div>
-                            <span class="tag-status status-boa">Boa
-                                <span class="ponto"></span>
-                            </span>
+                            <div class="nota"><span class="estrela" aria-hidden="true">★</span> <strong></strong></div>
+                            <a class="link-ver-todas" href="mapa.html"></a>
                         </div>
                     </div>
                 </article>
-                <article class="card-regiao">
-                    <div class="capa-regiao fundo-verde-claro" aria-hidden="true">
-                        <div class="mini-grafico">
-                            <span class="barra azul" style="height: 38%"></span>
-                            <span class="barra verde" style="height: 55%"></span>
-                            <span class="barra azul" style="height: 72%"></span>
-                            <span class="barra verde" style="height: 40%"></span>
-                            <span class="barra azul" style="height: 60%"></span>
-                        </div>
-                    </div>
-                    <div class="corpo-regiao">
-                        <h3>Vila Mariana</h3>
-                        <p class="subtitulo-regiao">Zona Sul &bull; São Paulo</p>
-                        <div class="rodape-regiao">
-                            <div class="nota">
-                                <span class="estrela"> &#9733;</span>
-                                <strong>4,4</strong>
-                            </div>
-                            <span class="tag-status status-boa">Média
-                                <span class="ponto"></span>
-                            </span>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            </template>
         </section>
     </main>
     <footer class="rodape-fixo">
@@ -109,5 +73,7 @@
     </footer>
     
 <script src="Script_conta.js" defer></script>
+<script src="Script_bairros.js" defer></script>
+<script src="Script_inicio.js" defer></script>
 </body>
 </html>
